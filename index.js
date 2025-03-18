@@ -1,11 +1,11 @@
-const {Agent} = require("@openserv-labs/sdk");
-const {z} = require("zod")
+const { Agent } = require("@openserv-labs/sdk");
+const { z } = require("zod");
 
 // Initialize the agent
 const agent = new Agent({
   systemPrompt: 'You are a helpful assistant.',
   apiKey: '188b898005eb4b31a7cccf8fd47e87c4'
-})
+});
 
 // Add a liquidity monitoring capability
 agent.addCapability({
@@ -32,23 +32,29 @@ agent.addCapability({
       return [
         {
           role: "system",
-          content: "Here's the result from the liquidity monitoring service."
+          content: [
+            { type: "text", text: "Here's the result from the liquidity monitoring service." }
+          ]
         },
         {
           role: "assistant",
-          content: JSON.stringify(data)
+          content: [
+            { type: "text", text: JSON.stringify(data) }
+          ]
         }
       ];
     } catch (error) {
       return [
         {
           role: "assistant",
-          content: `Error: ${error.message}`
+          content: [
+            { type: "text", text: `Error: ${error.message}` }
+          ]
         }
       ];
     }
-  }  
-})
+  }
+});
 
 // Start the agent server
 agent.start();
