@@ -12,13 +12,12 @@ agent.addCapability({
   name: 'getMonitoring',
   description: 'Fetch token details from the liquidity monitoring service',
   schema: z.object({
-    token_address: z.string().describe('The token address to query'),
-    chain_id: z.string().describe('The chain id for the query')
+    token_address: z.string().describe('The token address to query')
   }),
   async run({ args }) {
     try {
       const response = await fetch(
-        `https://liquidity-monitoring-1.onrender.com/get_token?token_address=${args.token_address}&chain_id=${args.chain_id}`,
+        `https://liquidity-monitoring-1.onrender.com/get_token?token_address=${args.token_address}&chain_id=solana`,
         {
           mode: "cors",
           headers: {
