@@ -17,6 +17,7 @@
     "@openserv-labs/sdk": "^1.2.0",
     "@types/node": "^22.13.10",
     "axios": "^1.8.3",
+    "dotenv": "^16.4.7",
     "fs": "^0.0.1-security",
     "liquidity": "file:",
     "openai": "^4.87.3",
