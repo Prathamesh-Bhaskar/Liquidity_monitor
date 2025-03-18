@@ -29,11 +29,25 @@ agent.addCapability({
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      return data;
+      return [
+        {
+          role: "system",
+          content: "Here's the result from the liquidity monitoring service."
+        },
+        {
+          role: "assistant",
+          content: JSON.stringify(data)
+        }
+      ];
     } catch (error) {
-      return { error: error.message };
+      return [
+        {
+          role: "assistant",
+          content: `Error: ${error.message}`
+        }
+      ];
     }
-  }
+  }  
 })
 
 // Start the agent server
