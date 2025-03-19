@@ -19,6 +19,7 @@ agent.addCapability({
       const response = await fetch(
         `https://liquidity-monitoring-1.onrender.com/get_token?token_address=${args.token_address}&chain_id=solana`,
         {
+          method : 'GET',
           mode: "cors",
           headers: {
             "Content-Type": "application/json",
