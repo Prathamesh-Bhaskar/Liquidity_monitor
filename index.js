@@ -3,7 +3,7 @@ const { z } = require("zod");
 
 // Initialize the agent
 const agent = new Agent({
-  systemPrompt: 'You are a helpful assistant.',
+  systemPrompt: 'You are a helpful assistant. Takes token address from user and use it in args',
   apiKey: '188b898005eb4b31a7cccf8fd47e87c4'
 });
 
