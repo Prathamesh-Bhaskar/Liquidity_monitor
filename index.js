@@ -12,7 +12,7 @@ agent.addCapability({
   name: 'getMonitoring',
   description: 'Fetch token details from the liquidity monitoring service',
   schema: z.object({
-    token_address: z.string().describe('The token address to query')
+    token_address: z.string()
   }),
   async run({ args }) {
     try {
